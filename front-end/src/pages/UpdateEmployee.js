@@ -7,7 +7,7 @@ const UpdateEmployee = () => {
     const { eid } = useParams();
     const [employee, setEmployee] = useState({
     });
-
+    const [error, setError] = useState("");
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -23,6 +23,16 @@ const UpdateEmployee = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if (
+            !employee.firstname ||
+            !employee.lastname ||
+            !employee.email ||
+            !employee.salary ||
+            !employee.gender
+          ) {
+            setError("All fields are required");
+            return;
+          }
         axios.put(`http://localhost:5000/api/v1/emp/employees/${eid}`, employee)
             .then(result => {
                 if(result.data) {
@@ -127,6 +137,7 @@ const UpdateEmployee = () => {
                             Cancel
                         </button>
                     </div>
+                    {error && <p className="error-message">{error}</p>}
                 </form>
             </div>
         </div>

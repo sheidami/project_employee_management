@@ -10,11 +10,21 @@ const AddEmployee = () => {
         salary: "", 
         gender: "",
     });
-
+    const [error, setError] = useState("");
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (
+            !employee.firstname ||
+            !employee.lastname ||
+            !employee.email ||
+            !employee.salary ||
+            !employee.gender
+          ) {
+            setError("All fields are required");
+            return;
+          }
 
         axios.post('http://localhost:5000/api/v1/emp/employees', employee)
             .then(result => {
@@ -116,6 +126,7 @@ const AddEmployee = () => {
                             Cancel
                         </button>
                     </div>
+                    {error && <p className="error-message">{error}</p>}
                 </form>
             </div>
         </div>
