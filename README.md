@@ -1,7 +1,7 @@
 # 101382319_comp3123_assignment2_reactjs
 # Employee Management System
 
-The Employee Management System is a web-based application that allows users to manage employee records. Users can perform operations such as viewing, updating, adding, and deleting employee information. Additionally, the system provides authentication features with login and signup functionality.
+The Staff Track is a web-based application that allows users to manage employee records. Users can perform operations such as viewing, updating, adding, and deleting employee information. Additionally, the system provides authentication features with login and signup functionality.
 
 ## Features
 
